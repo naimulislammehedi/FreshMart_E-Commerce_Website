@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FreshMart | Premium Groceries</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f9fafb;
+  color: #111827;
+  line-height: 1.6;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #eee;
+  z-index: 1000;
+}
+
+.nav-inner {
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  color: #059669;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  font-weight: 500;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #374151;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #059669;
+}
+
+.cart-btn {
+  background: #059669;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 14px;
+}
+
+.cart-btn:hover {
+  background: #047857;
+}
+
+/* =========================
+   HERO
+========================= */
+.hero {
+  padding-top: 120px;
+  padding-bottom: 80px;
+}
+
+.hero-box {
+  position: relative;
+  min-height: 420px;
+  border-radius: 30px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background: #064e3b;
+}
+
+.hero-box img {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 60px;
+  max-width: 600px;
+  color: white;
+}
+
+.hero-content h1 {
+  font-size: 48px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  margin-bottom: 30px;
+  font-size: 18px;
+}
+
+.btn-primary {
+  background: #10b981;
+  padding: 12px 30px;
+  border-radius: 30px;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  background: #34d399;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+section {
+  padding: 60px 0;
+}
+
+.section-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+/* =========================
+   CATEGORIES
+========================= */
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+}
+
+.category-card {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  border: 1px solid #eee;
+  transition: 0.3s;
+}
+
+.category-card:hover {
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+/* =========================
+   PRODUCTS
+========================= */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.product-card {
+  background: white;
+  border-radius: 25px;
+  overflow: hidden;
+  border: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  transition: 0.3s;
+}
+
+.product-card:hover {
+  box-shadow: 0 15px 35px rgba(0,0,0,0.07);
+}
+
+.product-img {
+  height: 220px;
+  overflow: hidden;
+}
+
+.product-img img {
+  height: 100%;
+  object-fit: cover;
+  transition: 0.5s;
+}
+
+.product-card:hover img {
+  transform: scale(1.05);
+}
+
+.product-content {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.product-content h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.price {
+  color: #059669;
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.add-btn {
+  margin-top: auto;
+  background: #059669;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.add-btn:hover {
+  background: #047857;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+  background: white;
+  border-top: 1px solid #eee;
+  padding: 40px 0;
+  text-align: center;
+  font-size: 14px;
+  color: #6b7280;
+  margin-top: 80px;
+}
+
+/* =========================
+   CART SIDEBAR
+========================= */
+#cart-toggle {
+  display: none;
+}
+
+.cart-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 350px;
+  height: 100%;
+  background: white;
+  box-shadow: -5px 0 25px rgba(0,0,0,0.1);
+  transform: translateX(100%);
+  transition: 0.3s;
+  padding: 40px;
+  z-index: 2000;
+}
+
+#cart-toggle:checked ~ .cart-sidebar {
+  transform: translateX(0);
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+  z-index: 1500;
+}
+
+#cart-toggle:checked ~ .overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+.close-btn {
+  display: inline-block;
+  margin-top: 20px;
+  background: #059669;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<input type="checkbox" id="cart-toggle">
+
+<nav>
+  <div class="container nav-inner">
+    <div class="logo">FreshMart</div>
+
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#shop">Shop</a>
+      <a href="#categories">Categories</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <label for="cart-toggle" class="cart-btn">Cart</label>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container hero-box">
+    <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=1600">
+    <div class="hero-content">
+      <h1>Fresh Groceries Delivered Daily</h1>
+      <p>Premium farm-sourced produce and essentials at unbeatable prices.</p>
+      <a href="#shop" class="btn-primary">Shop Now</a>
+    </div>
+  </div>
+</header>
+
+<section id="categories">
+  <div class="container">
+    <h2 class="section-title">Shop by Category</h2>
+    <div class="categories-grid">
+      <div class="category-card">Fruits</div>
+      <div class="category-card">Vegetables</div>
+      <div class="category-card">Dairy</div>
+      <div class="category-card">Meat</div>
+      <div class="category-card">Bakery</div>
+      <div class="category-card">Beverages</div>
+    </div>
+  </div>
+</section>
+
+<section id="shop">
+  <div class="container">
+    <h2 class="section-title">Popular Products</h2>
+    <div class="products-grid">
+
+      <div class="product-card">
+        <div class="product-img">
+          <img src="https://images.unsplash.com/photo-1603833665858-e61d17a86224?auto=format&fit=crop&q=80&w=400">
+        </div>
+        <div class="product-content">
+          <h3>Organic Bananas</h3>
+          <div class="price">$2.99</div>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">
+          <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80&w=400">
+        </div>
+        <div class="product-content">
+          <h3>Whole Grain Bread</h3>
+          <div class="price">$2.25</div>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">
+          <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80&w=400">
+        </div>
+        <div class="product-content">
+          <h3>Whole Grain Bread</h3>
+          <div class="price">$2.25</div>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">
+          <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80&w=400">
+        </div>
+        <div class="product-content">
+          <h3>Whole Grain Bread</h3>
+          <div class="price">$2.25</div>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">
+          <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80&w=400">
+        </div>
+        <div class="product-content">
+          <h3>Whole Grain Bread</h3>
+          <div class="price">$2.25</div>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">
+          <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80&w=400">
+        </div>
+        <div class="product-content">
+          <h3>Whole Grain Bread</h3>
+          <div class="price">$2.25</div>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  © 2026 FreshMart. All rights reserved.
+</footer>
+
+<div class="cart-sidebar">
+  <h3>Your Basket</h3>
+  <p style="margin-top:20px;color:#6b7280;">
+    Cart functionality requires JavaScript.
+  </p>
+  <label for="cart-toggle" class="close-btn">Close</label>
+</div>
+
+<label for="cart-toggle" class="overlay"></label>
+
+</body>
+</html>
